@@ -1,0 +1,8 @@
+.dashboard__links {
+ display: flex;
+}
+
+.dashboard__links a {
+  padding-left: 1rem;
+  text-transform: capitalize;
+}

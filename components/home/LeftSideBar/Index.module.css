@@ -1,0 +1,25 @@
+.leftSide {
+  background-color: var(--color-peach);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+
+}
+
+.leftSide__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 65%;
+}
+
+.leftSide__title {
+  font-family: poppins;
+  font-weight: bold;
+  font-size: 1.4rem;
+  text-transform: capitalize;
+  margin-bottom: 4rem;
+  color: var(--color-grey-darkest, black);
+}

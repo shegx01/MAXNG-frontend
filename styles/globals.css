@@ -2,8 +2,10 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: Source Sans Pro, -apple-system, BlinkMacSystemFont, Segoe UI,
+    Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
+    sans-serif;
+  font-size: 14px;
 }
 
 a {
@@ -14,3 +16,85 @@ a {
 * {
   box-sizing: border-box;
 }
+
+:root {
+  /* colors */
+  --color-peach: rgba(255, 246, 211, 1);
+  --color-background: rgba(255, 255, 255, 1);
+  --color-grey-darkest: rgba(0, 26, 3, 1);
+  --color-blue-darkest: rgba(43, 45, 66, 1);
+  --color-blue-lightest: rgba(141, 153, 174, 1);
+  --color-dark: rgba(31, 31, 33, 1);
+  --color-disabled: rgb(132 132 132);
+  --color-border: rgba(219, 227, 238, 1);
+  --color-icon-grey: rgba(128, 139, 157, 1);
+  --color-sub-header: rgba(163, 171, 183, 1);
+  --color-yellow-vivid: rgba(253, 219, 0, 1);
+  --color-background-grey: rgba(246, 246, 246, 1);
+  --color-green-light: rgba(3, 212, 182, 1);
+  --color-green-lightest: rgb(179 255 244);
+  --color-green-darkest: rgba(23, 137, 36, 1);
+  --color-hover: rgba(0, 0, 0, 0.02);
+
+  /* values */
+
+  --button-border-radius: 3px;
+  --icon-border-radius: 5px;
+  --card-border-radius: 5px;
+}
+
+ul > li {
+  list-style: none;
+}
+
+ul {
+  list-style-type: none;
+  margin-block-start: unset;
+  margin-block-end: unset;
+  padding-inline-start: unset;
+}
+
+option {
+  padding: 8px 2px !important;
+  color: var(--color-blue-lightest);
+  text-transform: capitalize;
+}
+
+option:hover {
+  color: white;
+  background-color: var(--color-blue-darkest);
+}
+
+table {
+  font-family: "Rubik", sans-serif;
+}
+.rc-table-content {
+  display: grid;
+}
+
+th.rc-table-cell {
+  font-size: .8rem;
+  color: var(--color-sub-header);
+}
+
+
+.align-left {
+  display: flex;
+  width: 100%;
+}
+
+th.rc-table-cell {
+  text-align: left;
+}
+
+
+.rc-table-cell {
+  font-size: .8rem;
+  padding: 1rem 0;
+  color: var(--color-grey-darkest);
+}
+
+tr.rc-table-row.rc-table-row-level-0:hover {
+ background-color: var(--color-hover);
+}
+
