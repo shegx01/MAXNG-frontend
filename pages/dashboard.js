@@ -176,16 +176,6 @@ const Dashboard = () => {
     loadInitialMenu();
     loadFilmsData();
   }, []);
-
-  useEffect(() => {
-    console.log({
-      loading,
-      error,
-      filmsData,
-      transformedFilmData,
-    });
-  });
-
   const handleSelectedYearChange = (evt) => {
     evt.persist();
     setSelectedYear(evt.target.value);
@@ -241,5 +231,3 @@ const Dashboard = () => {
 };
 
 export default Dashboard;
-
-// https://table-react-component.vercel.app/
