@@ -1,0 +1,12 @@
+
+.table_container {
+  display: grid;
+  padding: 0 1rem;
+}
+
+.table_title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  padding-left: 1.5rem;
+  margin-bottom: 1rem;
+}

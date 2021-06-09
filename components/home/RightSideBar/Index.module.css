@@ -1,0 +1,10 @@
+.container {
+  height: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+}
+
+.container__image {
+  margin: 2rem 2rem 0 0;
+}
