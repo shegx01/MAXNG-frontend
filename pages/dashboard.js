@@ -8,6 +8,7 @@ import { isEmpty } from "ramda";
 import CustomTable from "../components/dashboard/CustomTable";
 import IndicatorIcon from "../components/dashboard/IndicatorIcon";
 import { User, Video } from "react-feather";
+import useFetch from "use-http";
 const Dashboard = () => {
   const filmsTableTitle = "Films";
   const filmsTablecolumns = [
@@ -46,13 +47,14 @@ const Dashboard = () => {
       ),
     },
   ];
-  const { get, error, loading, response } = api();
-  const [menuLinks, setMenuLinks] = useState({});
-  const [filmsData, setFilmsData] = useState([]);
+  const { get, error: linkError, loading: linkLoading, response } = api();
+  const { loading: filmsLoading, data = []} = useFetch("https://swapi.dev/api/films", {}, []);
+  const films = data.results || []
 
+  const [menuLinks, setMenuLinks] = useState({});
   // some code repetition
   // could have refactored into components but time limit
-  const transformedFilmData = filmsData.map((film) => {
+  const transformedFilmData = films.map((film) => {
     return {
       ...film,
       key: film.release_date,
@@ -126,13 +128,6 @@ const Dashboard = () => {
     }
   }
 
-  async function loadFilmsData() {
-    const data = await get("/films");
-    if (response.ok) {
-      setFilmsData(data.results);
-    }
-  }
-
   const selectOption1 = [
     {
       value: "current year",
@@ -174,7 +169,6 @@ const Dashboard = () => {
 
   useEffect(() => {
     loadInitialMenu();
-    loadFilmsData();
   }, []);
   const handleSelectedYearChange = (evt) => {
     evt.persist();
@@ -206,7 +200,7 @@ const Dashboard = () => {
           </div>
         </div>
         <div className={styles.dashboard_content}>
-          {loading && (
+          {linkLoading && (
             <span className={styles.navigation__loading}>Loading...</span>
           )}
 
@@ -217,12 +211,16 @@ const Dashboard = () => {
               ))}
             </div>
           )}
+
           <div className={styles.table_container}>
-            <CustomTable
-              title={filmsTableTitle}
-              columns={filmsTablecolumns}
-              data={transformedFilmData}
-            />
+            {filmsLoading && <span>loading ...</span>}
+            {!isEmpty(films) && (
+              <CustomTable
+                title={filmsTableTitle}
+                columns={filmsTablecolumns}
+                data={transformedFilmData}
+              />
+            )}
           </div>
         </div>
       </div>

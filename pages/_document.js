@@ -13,7 +13,7 @@ class MyDocument extends Document {
       <Html>
         <Head>
           {/* fix http mixed content error */}
-          <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
+          <meta httpEquiv="Content-Security-Policy" content="upgrade-insecure-requests" />
           {/* google fonts link */}
           <link rel="preconnect" href="https://fonts.gstatic.com" />
           <link
