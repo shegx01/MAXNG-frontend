@@ -14,7 +14,7 @@ export default function CustomTable({ columns, data, title } = props) {
 }
 
 Table.propTypes = {
-  columns: propTypes.object.isRequired,
-  title: propTypes.string.isRequired,
-  data: propTypes.object.isRequired
+  columns: propTypes.array.isRequired,
+  title: propTypes.string,
+  data: propTypes.array.isRequired
 }
