@@ -48,11 +48,10 @@ const Dashboard = () => {
     },
   ];
   const { get, error: linkError, loading: linkLoading, response } = api();
-
+  const { loading: filmsLoading, data = []} = useFetch("https://swapi.dev/api/films", {}, []);
+  const films = data.results || []
 
   const [menuLinks, setMenuLinks] = useState({});
-  const [films, setFilms] = useState([])
-  const [filmsLoading, setFilmsLoading] = useState(true)
   // some code repetition
   // could have refactored into components but time limit
   const transformedFilmData = films.map((film) => {
@@ -129,14 +128,6 @@ const Dashboard = () => {
     }
   }
 
-  async function loadfilms() {
-    const data = await get('films');
-    if (response.ok) {
-      setFilms(data.results);
-      setFilmsLoading(false)
-    }
-  }
-
   const selectOption1 = [
     {
       value: "current year",
@@ -178,7 +169,6 @@ const Dashboard = () => {
 
   useEffect(() => {
     loadInitialMenu();
-    loadfilms()
   }, []);
   const handleSelectedYearChange = (evt) => {
     evt.persist();
